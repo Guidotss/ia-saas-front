@@ -1,0 +1,70 @@
+---
+import { ImageIcon, TextIcon, TextToSpeechIcon, SettingsIcon } from "../ui";
+const sidebarItems: string[] = [
+  "Image generation",
+  "Text to speech",
+  "Text generation",
+  "Image generation",
+  "Text to speech",
+  "Text generation",
+  "Image generation",
+];
+---
+
+<aside class="lg:w-80 md:w-60 h-[100vh] flex flex-col p-2 bg-black">
+  <section class="flex flex-col lg:h-[63vh] overflow-y-auto">
+    <div class="flex justify-between items-center mt-5 mb-5">
+      <div class="w-16 h-[1px] bg-slate-50"></div>
+      <h2 class="text-2xl text-white font-bold">Your chat</h2>
+      <div class="w-16 h-[1px] bg-slate-50"></div>
+    </div>
+    <ul class="flex flex-col space-y-5 shadow-md">
+      {
+        sidebarItems.map((item: string) => (
+          <li class="w-64 text-white font-semibold border-b-[1px] cursor-pointer border-slate-100 py-2 hover:text-gray-400 transition-colors duration-300">
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="space-y-5 mt-3">
+    <div class="flex justify-between items-center mt-5 mb-5">
+      <div class="w-16 h-[1px] bg-slate-50"></div>
+      <h2 class="text-2xl text-white font-bold">Services</h2>
+      <div class="w-16 h-[1px] bg-slate-50"></div>
+    </div>
+    <ul class="flex flex-col space-y-3">
+      {
+        [
+          {
+            icon: <ImageIcon />,
+            text: "Image generation",
+          },
+          {
+            icon: <TextToSpeechIcon />,
+            text: "Text to speech",
+          },
+          {
+            icon: <TextIcon />,
+            text: "Text generation",
+          },
+        ].map((item) => (
+          <li class="flex items-center space-x-2 cursor-pointer hover:bg-slate-800 transition-colors duration-300 p-2 rounded-md">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md">
+              <div id="sidebarIcon" class="z-10 absolute">
+                {item.icon}
+              </div>
+            </div>
+            <p class="text-white font-semibold">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex justify-end items-end h-14 mr-2">
+      <a href="/settings" class="p-2 rounded-full hover:bg-opacity-40 hover:bg-slate-800 transition-colors duration-300 ease-out ">
+        <SettingsIcon />
+      </a>
+    </div>
+  </section>
+</aside>
