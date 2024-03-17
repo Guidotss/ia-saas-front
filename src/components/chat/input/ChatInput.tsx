@@ -33,7 +33,7 @@ export const ChatInput = () => {
           onSubmit={handleSubmit}
         >
           <textarea
-            className="2xl:w-[33rem] h-10 py-3 px-6 rounded-l-xl bg-slate-800 text-white outline-none resize-none overflow-auto"
+            className="w-[33rem] h-10 py-3 px-6 rounded-l-xl bg-slate-800 text-white outline-none resize-none overflow-auto custom-scroll"
             placeholder="Type a message"
             ref={textAreaRef}
             value={inputValue}
