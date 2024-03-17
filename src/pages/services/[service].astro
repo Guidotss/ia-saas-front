@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServicesLayout from "../../layouts/ServicesLayout.astro";
+
+export async function getStaticPaths() {
+  const pages = [
+    {
+      service: "text-to-speech",
+      title: "Text to Speech",
+    },
+    {
+      service: "image-generation",
+      title: "Image generation",
+    },
+    {
+      service: "text-generation",
+      title: "Text generation",
+    },
+  ];                 
+
+  return pages.map(({ service, title }) => {
+    return {
+      params: { service },
+      props: { title }
+    }
+  })
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <ServicesLayout>
+    <main class="text-2xl text-white">
+      <h1>{title}</h1>
+      <p>
+        This is a page for the {title} service.
+      </p>
+    </main>
+  </ServicesLayout>
+</Layout>

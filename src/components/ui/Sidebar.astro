@@ -57,7 +57,7 @@ const sidebarItems: string[] = [
               </div>
             </div>
             <a
-              href={`/${item.text.split(" ").join("_").toLocaleLowerCase()}`}
+              href={`/services/${item.text.split(" ").join("-").toLocaleLowerCase()}`}
               class="text-white font-semibold"
             >
               {item.text}
